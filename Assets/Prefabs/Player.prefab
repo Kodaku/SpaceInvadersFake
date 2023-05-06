@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 1328091756690569407}
   - component: {fileID: 4938354797443782129}
   - component: {fileID: -2947597189997229787}
-  m_Layer: 0
+  - component: {fileID: -2057916379875944067}
+  - component: {fileID: 1876318897257556875}
+  - component: {fileID: -2015887835402374456}
+  - component: {fileID: 2731958166600872929}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +137,73 @@ MonoBehaviour:
   paddingRight: 0.5
   paddingTop: 5
   paddingBottom: 2
+--- !u!50 &-2057916379875944067
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328091756690569406}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1876318897257556875
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328091756690569406}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.008552611, y: 0.015679777}
+  serializedVersion: 2
+  m_Radius: 0.36173284
+--- !u!114 &-2015887835402374456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328091756690569406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90bbdeb1f31bec54194057ee35b8ca8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+--- !u!114 &2731958166600872929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328091756690569406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d4c3ea45a7959448ee2c358e57df35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5084946972555885444, guid: e56789baaca76454184cdabc41d89add, type: 3}
+  projectileSpeed: 10
+  projectileLifetime: 5
+  fireRate: 0.1
+  isFiring: 0
 --- !u!1 &1328091757291280442
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328091757291280443}
   - component: {fileID: 1328091757291280440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: playerShip3_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: aff6e3a8ba6e49a4a9de0a3c9fb13361, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
