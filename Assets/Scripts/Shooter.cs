@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("General")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileSpeed = 10.0f;
     [SerializeField] float projectileLifetime = 5.0f;
-    [SerializeField] float fireRate = 0.1f;
+    [SerializeField] float baseFiringRate = 0.1f;
+    [Header("AI")]
+    [SerializeField] bool useAI;
+    [SerializeField] float fireRateVariance = 0.0f;
+    [SerializeField] float minimumFiringRate = 1.0f;
 
-    public bool isFiring;
+    [HideInInspector] public bool isFiring;
     Coroutine firingCoroutine;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(useAI) {
+            isFiring = true;
+        }
     }
 
     // Update is called once per frame
@@ -42,7 +49,10 @@ public class Shooter : MonoBehaviour
                 rb.velocity = transform.up * projectileSpeed;
             }
             Destroy(instance, projectileLifetime);
-            yield return new WaitForSeconds(fireRate);
+            float timeToNextProjectile = Random.Range(minimumFiringRate - fireRateVariance,
+                                                        baseFiringRate + fireRateVariance);
+            timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
+            yield return new WaitForSeconds(timeToNextProjectile);
         }
         
     }
